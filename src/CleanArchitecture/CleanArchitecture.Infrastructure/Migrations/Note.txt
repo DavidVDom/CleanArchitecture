@@ -1,0 +1,4 @@
+Como se usará Docker para la bbdd, estas migraciones ya no se usarán, se excluyen del proyecto y se volverán a crear
+
+Para hacerlo desde Package Manager Console en vez de desde la cli de .net, usar:
+add-migration InitialCreate -StartupProject CleanArchitecture.Api, seleccionando en Default project el de Infrastructure
