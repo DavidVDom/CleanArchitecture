@@ -1,0 +1,30 @@
+ï»¿version: '3.4'
+
+# aquí sobreescribimos y añadimos más detalle a las características de los containers definidos en docker-compose.yml
+services:
+    cleanarchitecturedb:
+        container_name: cleanarchitecturedb
+        environment:
+            - POSTGRESS_USER=postgres
+            - POSTGRESS_PASSWORD=postgres
+            - POSTGRESS_DB=cleanarchitecture
+        restart: always
+        # podríamos almacenarlo en el mismo docker, pero lo pondremos en la raíz de nuestra aplicación
+        volumes:
+            - ./.containers/database:/var/lib/postgresql/data/
+        ports:
+            - 5432:5432
+
+    cleanarchitectureapi:
+        container_name: cleanarchitectureapi
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development # leerá configuración de appsettings.Development.json de la API
+            # - ASPNETCORE_URLS=http://+:80 # a nivel de clientes externos se ejecutará en el puerto 80
+            - ASPNETCORE_URLS=http://+:5000 # a nivel interno del docker se ejecutará en el puerto 5000
+            # cadena de conexión, observar que el host es el contenedor de la bbdd
+            # ojo, para que coja el valor del appsettings dos underscores
+            - "ConnectionStrings__ConnectionString=Host=cleanarchitecturedb;Port:5432;Database=cleanarchitecture;Username=postgres;Password=postgres;"
+        depends_on:
+            - cleanarchitecturedb
+        ports:
+            - 80:5000 # a nivel interno en el 5000 y externo de cara a los clientes en el 80 (por ejemplo desde postman)

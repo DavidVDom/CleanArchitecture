@@ -1,0 +1,22 @@
+ï»¿version: '3.4'
+
+services:
+    # container de la bbdd, que dependerá de la imagen, cosas como el puerto o el usuario de la bbdd irán en el docker-compose.override
+    cleanarchitecturedb:
+        image: postgres:16.0
+
+    # container de la aplicación .NET, en este caso nosotros crearemos la imagen en lugar de buscarla en el docker hub
+    # la imagén se generará a partir del archivo Dockerfile que está en CleanArchitecture.Api
+    cleanarchitectureapi:
+        image: ${DOCKER_REGISTER-}cleanarchitectureapi # nombre
+        build:
+            context: . # se construye en base al contexto local
+            dockerfile: src/CleanArchitecture/CleanArchitecture.Api/Dockerfile
+
+# En consola, para que cree la primera vez las imágenes y containers a partir de nuestro archivo docker:
+# desde D:\proyectos\Udemy\CleanArch2Auth\CleanArchitecture ->
+# docker compose -f docker-compose.yml -f docker-compose.override.yml up -d
+
+# para inspeccionar la bbdd podemos entrar con:
+# docker exec -it  cleanarchitecturedb psql -U postgres cleanarchitecture
+# con \dt listamos todas las tablas

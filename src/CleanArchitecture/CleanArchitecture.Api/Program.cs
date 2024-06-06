@@ -58,7 +58,7 @@ if (app.Environment.IsDevelopment())
 // https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs
 // tener en cuenta que no hará falta el Update-Database, ya que hemos creado ApplicationBuilderExtensions
 // con ApplyMigration, que se encargará de ejecutar los archivos de migración al arrancar la aplicación
-app.ApplyMigration();
+await app.ApplyMigration();
 
 // para poblar tablas con datos fake con Bogus
 // lo comentamos, porque si no va a insertar lo que tenga el método cada vez que arranque la aplicación

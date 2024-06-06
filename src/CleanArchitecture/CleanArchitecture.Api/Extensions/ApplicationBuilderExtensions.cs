@@ -7,7 +7,7 @@ namespace CleanArchitecture.Api.Extensions
     public static class ApplicationBuilderExtensions
     {
         // método de extensión de IApplicationBuilder que usaremos para las migraciones
-        public static async void ApplyMigration(this IApplicationBuilder app)
+        public static async Task ApplyMigration(this IApplicationBuilder app)
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {

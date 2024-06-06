@@ -13,7 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infrastructure", "src\CleanArchitecture\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj", "{28E97FFE-626F-4459-B72C-08508D8B01EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Api", "src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj", "{A4D95CF4-271A-4306-BA09-F891B8BBA693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Api", "src\CleanArchitecture\CleanArchitecture.Api\CleanArchitecture.Api.csproj", "{A4D95CF4-271A-4306-BA09-F891B8BBA693}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DBAB86B1-AA45-4637-89B4-88E75D17115B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.dcproj = docker-compose.dcproj
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,5 +54,8 @@ Global
 		{EF175BDC-956F-4410-AEDA-F4CA702E5866} = {9E7D998A-AC81-40C8-AB90-07F981C33D4A}
 		{28E97FFE-626F-4459-B72C-08508D8B01EF} = {9E7D998A-AC81-40C8-AB90-07F981C33D4A}
 		{A4D95CF4-271A-4306-BA09-F891B8BBA693} = {9E7D998A-AC81-40C8-AB90-07F981C33D4A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0525394B-C9AC-4A90-960C-9B306F637E1A}
 	EndGlobalSection
 EndGlobal
